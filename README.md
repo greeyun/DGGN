@@ -25,5 +25,8 @@ subject dependent experiment: run 'python pretrain_and_gan_dep.py'
 subject independent experiment: run 'python pretrain_and_gan_indep.py'
 
 ## Train
-subject dependent experiment: run 'python train_dep.py' 
+subject dependent experiment: run 
+''' python
+python train_dep.py
+'''
 subject independent experiment: run 'python train_indep.py'
