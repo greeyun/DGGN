@@ -1,11 +1,10 @@
 import torch
-import SEED_config as config
 import numpy as np
 from torch import optim, nn
 from torch.utils.data.dataloader import DataLoader
-from SEED_model import Generator, Discriminator, Classfication
-from SEED_dataloader import Mydataset, get_train_test_clip
-from SEED_utils import EarlyStopping_gan, plot_confusion_matrix, schedule
+from model import Generator, Discriminator, Classfication
+from dataloader import Mydataset, get_train_test_clip
+from utils import EarlyStopping_gan, plot_confusion_matrix, schedule
 from sklearn.metrics import f1_score, recall_score, precision_score
 from sklearn.preprocessing import StandardScaler
 scaler = StandardScaler()
