@@ -21,12 +21,21 @@ Fig. 2.  The Framework of Generator.
 Download target dataset DEAP and SEED from http://www.eecs.qmul.ac.uk/mmv/datasets/deap and https://bcmi.sjtu.edu.cn/~seed/index.html respectively.
 
 ## Pretrain
-subject dependent experiment: run 'python pretrain_and_gan_dep.py'
-subject independent experiment: run 'python pretrain_and_gan_indep.py'
+subject dependent experiment: run 
+``` python
+python pretrain_and_gan_dep.py
+```
+subject independent experiment: run
+``` python
+python pretrain_and_gan_indep.py
+```
 
 ## Train
 subject dependent experiment: run 
 ``` python
 python train_dep.py
 ```
-subject independent experiment: run 'python train_indep.py'
+subject independent experiment: run 
+``` python
+python train_indep.py
+``` 
