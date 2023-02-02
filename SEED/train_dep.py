@@ -12,7 +12,6 @@ scaler = StandardScaler()
 BATCHSIZE = 8
 device = config.device
 
-
 def traink(model, train_loader, test_loader, learning_rate, BATCHSIZE, TOTAL_EPOCHS, sub, clip_num):
 
     loss_fn = nn.CrossEntropyLoss().to(device)
@@ -29,7 +28,6 @@ def traink(model, train_loader, test_loader, learning_rate, BATCHSIZE, TOTAL_EPO
     f_score = []
     RECALL_score = []
     PRE_score = []
-
 
     pretrained_params = torch.load(config.save_index + '/checkpoint/subject_dependent/checkpoint_gan_dep_' + sub + '_' + 'clip' + str(clip_num) + '.pt')
     model.load_state_dict(pretrained_params, strict=False)
