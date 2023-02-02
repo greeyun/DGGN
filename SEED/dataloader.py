@@ -1,7 +1,6 @@
 import numpy as np
 import torch
 from sklearn.utils import shuffle
-import SEED_config as config
 from torch.utils.data import Dataset
 from sklearn.preprocessing import StandardScaler
 scaler = StandardScaler()
