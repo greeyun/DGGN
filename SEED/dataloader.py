@@ -95,6 +95,18 @@ def get_train_test_clip(sub, clip_num):
     y_test = shuffle(y_test, random_state=2022)
     return x_train, y_train, x_test, y_test
 
+def get_train_test_sub(sub, shots_data, target_label):
+
+    x_train, x_test, y_train, y_test = torch.cat((shots_data[:(int(sub)-1)], shots_data[int(sub):])),  \
+                                       shots_data[(int(sub)-1) : int(sub)], \
+                                       torch.cat((target_label[:(int(sub)-1)], target_label[int(sub):])), \
+                                       target_label[(int(sub)-1) : int(sub)]
+
+    x_train = x_train.reshape(-1,config.window_size+1, 62, 4).permute(0, 1, 3, 2)
+    x_test = x_test.reshape(-1,config.window_size+1, 62, 4).permute(0, 1, 3, 2)
+    y_train = y_train.flatten()
+    y_test = y_test.flatten()
+    return x_train, y_train, x_test, y_test
 
 class Mydataset(torch.utils.data.Dataset):
     def __init__(self, inshots_list,  outshot_list, label_list):
