@@ -3,9 +3,10 @@ import torch
 from sklearn.utils import shuffle
 from torch.utils.data import Dataset
 from sklearn.preprocessing import StandardScaler
-scaler = StandardScaler()
 import scipy.io
 import os
+
+scaler = StandardScaler()
 
 def get_file_path(root_path, file_list, dir_list):
     # 获取该目录下所有的文件名称和目录名称
