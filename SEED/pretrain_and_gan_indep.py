@@ -130,8 +130,3 @@ for sub in config.subjectList:
                 av_discriminator_loss.item(), av_generator_loss.item(), av_mse_loss.item()))
         pretrain_gan_loss.append(av_discriminator_loss.item())
         early_stopping_gan(av_mse_loss, generator)
-
-
-
-
-
