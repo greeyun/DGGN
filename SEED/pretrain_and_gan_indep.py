@@ -1,11 +1,11 @@
 import torch
-import SEED_config as config
+import config as config
 import numpy as np
 from torch import nn
 from torch.utils.data.dataloader import DataLoader
-from SEED_model import Generator, Discriminator
-from SEED_dataloader import Mydataset, get_train_test_sub
-from SEED_utils import EarlyStopping_gan
+from model import Generator, Discriminator
+from dataloader import Mydataset, get_train_test_sub
+from utils import EarlyStopping_gan
 from torch.autograd import Variable
 from sklearn.preprocessing import StandardScaler
 
