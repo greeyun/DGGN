@@ -1,7 +1,7 @@
 import torch
 import torch.nn as nn
 from torch.nn import init
-from SEED_utils import knn_value
+from utils import knn_value
 device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 
 class GraphConvolution(nn.Module):
