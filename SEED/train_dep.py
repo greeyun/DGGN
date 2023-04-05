@@ -68,10 +68,6 @@ def traink(model, train_loader, test_loader, learning_rate, BATCHSIZE, TOTAL_EPO
         with torch.no_grad():
             # label_test = torch.zeros((BATCHSIZE))
             # predicted_shot_two_test = torch.zeros((BATCHSIZE))
-            TP = 0
-            FN = 0
-            FP = 0
-            TN = 0
 
             for i, data in enumerate(test_loader):
                 in_shots, _, label = data
@@ -86,25 +82,12 @@ def traink(model, train_loader, test_loader, learning_rate, BATCHSIZE, TOTAL_EPO
                 # label_test = torch.cat((label_test, label.detach().cpu()))
                 # predicted_shot_two_test = torch.cat((predicted_shot_two_test, predicted_shot_two.argmax(1).detach().cpu()))
 
-                tp = (predicted_shot_two.argmax(1) == label).sum()
-                fn = (predicted_shot_two.size(0) - tp)
-                TP += tp.item()
-                FN += fn.item()
 
         epoch_test_loss = loss_test / total_test
         epoch_test_acc = correct_test / total_test
-        # f = f1_score(label_test, predicted_shot_two_test, average='macro')
-        # r = recall_score(label_test, predicted_shot_two_test, average='macro')
-        # p = precision_score(label_test, predicted_shot_two_test, average='macro')
-        r = TP / (TP+FN)
-
-        if (TP+FP) == 0:
-            p = 0
-            f = 0.5
-        else:
-            p = TP / (TP+FP)
-            f = (r*p*2) / (r+p)
-
+        f = f1_score(label_test, predicted_shot_two_test, average='macro')
+        r = recall_score(label_test, predicted_shot_two_test, average='macro')
+        p = precision_score(label_test, predicted_shot_two_test, average='macro')
 
         train_loss.append(epoch_loss)
         train_acc.append(epoch_acc)
